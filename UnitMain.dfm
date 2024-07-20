@@ -1,0 +1,411 @@
+object FormMain: TFormMain
+  Left = 0
+  Top = 0
+  Caption = 'Serial QR Code Generator'
+  ClientHeight = 515
+  ClientWidth = 767
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -16
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  Position = poScreenCenter
+  WindowState = wsMaximized
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  PixelsPerInch = 120
+  TextHeight = 19
+  object Splitter1: TSplitter
+    Left = 286
+    Top = 0
+    Width = 6
+    Height = 515
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Beveled = True
+  end
+  object Panel1: TPanel
+    Left = 292
+    Top = 0
+    Width = 475
+    Height = 515
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Align = alClient
+    BevelOuter = bvNone
+    Caption = 'Select Template'
+    Color = clWindow
+    ParentBackground = False
+    TabOrder = 0
+    object Preview: TImage
+      Left = 0
+      Top = 0
+      Width = 475
+      Height = 515
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Align = alClient
+      Center = True
+      Proportional = True
+      Transparent = True
+    end
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 0
+    Width = 286
+    Height = 515
+    Margins.Left = 4
+    Margins.Top = 4
+    Margins.Right = 4
+    Margins.Bottom = 4
+    Align = alLeft
+    BevelOuter = bvNone
+    TabOrder = 1
+    object Splitter2: TSplitter
+      Left = 0
+      Top = 224
+      Width = 286
+      Height = 4
+      Cursor = crVSplit
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Align = alBottom
+    end
+    object Panel3: TPanel
+      Left = 0
+      Top = 0
+      Width = 286
+      Height = 224
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Align = alClient
+      TabOrder = 0
+      DesignSize = (
+        286
+        224)
+      object Label1: TLabel
+        Left = 10
+        Top = 12
+        Width = 79
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Templates:'
+      end
+      object Templates: TJvFileListBox
+        Left = 10
+        Top = 38
+        Width = 269
+        Height = 179
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Anchors = [akLeft, akTop, akRight, akBottom]
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ItemHeight = 21
+        Mask = '*.bmp'
+        ParentFont = False
+        TabOrder = 0
+        OnChange = TemplatesChange
+        ForceFileExtensions = False
+        Columns = 2
+      end
+    end
+    object Panel4: TPanel
+      Left = 0
+      Top = 228
+      Width = 286
+      Height = 287
+      Margins.Left = 4
+      Margins.Top = 4
+      Margins.Right = 4
+      Margins.Bottom = 4
+      Align = alBottom
+      TabOrder = 1
+      DesignSize = (
+        286
+        287)
+      object Label2: TLabel
+        Left = 20
+        Top = 14
+        Width = 63
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Number:'
+      end
+      object Label3: TLabel
+        Left = 20
+        Top = 169
+        Width = 48
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Count:'
+      end
+      object Label4: TLabel
+        Left = 20
+        Top = 50
+        Width = 38
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Date:'
+      end
+      object Label5: TLabel
+        Left = 20
+        Top = 88
+        Width = 81
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Time from:'
+      end
+      object Label6: TLabel
+        Left = 78
+        Top = 121
+        Width = 20
+        Height = 19
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'to:'
+      end
+      object Bevel1: TBevel
+        Left = 12
+        Top = 152
+        Width = 261
+        Height = 6
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Anchors = [akLeft, akTop, akRight]
+        Shape = bsTopLine
+      end
+      object PrintLabel1: TLabel
+        Left = 20
+        Top = 213
+        Width = 62
+        Height = 21
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = 'Printing:'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        Visible = False
+      end
+      object PrintLabel: TLabel
+        Left = 100
+        Top = 213
+        Width = 25
+        Height = 21
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Caption = '0/0'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        Visible = False
+      end
+      object Printed: TLabel
+        Left = 201
+        Top = 213
+        Width = 58
+        Height = 21
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Anchors = [akTop, akRight]
+        Caption = 'Printed!'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlue
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        Visible = False
+      end
+      object Edit1: TEdit
+        Left = 147
+        Top = 10
+        Width = 77
+        Height = 29
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        Text = '1'
+        OnChange = FormaChange
+      end
+      object No: TUpDown
+        Left = 224
+        Top = 10
+        Width = 19
+        Height = 29
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Associate = Edit1
+        Min = 1
+        Max = 2147483647
+        Position = 1
+        TabOrder = 5
+      end
+      object ButtonPrint: TButton
+        Left = 20
+        Top = 239
+        Width = 238
+        Height = 38
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Anchors = [akLeft, akTop, akRight]
+        Caption = 'Print'
+        TabOrder = 6
+        OnClick = Print
+      end
+      object Edit2: TEdit
+        Left = 147
+        Top = 165
+        Width = 77
+        Height = 29
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -17
+        Font.Name = 'Tahoma'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 4
+        Text = '1'
+      end
+      object Count: TUpDown
+        Left = 224
+        Top = 165
+        Width = 19
+        Height = 29
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Associate = Edit2
+        Min = 1
+        Max = 1000000
+        Position = 1
+        TabOrder = 7
+      end
+      object DateFrom: TDateTimePicker
+        Left = 109
+        Top = 45
+        Width = 136
+        Height = 27
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Date = 36526.000000000000000000
+        Time = 36526.000000000000000000
+        Checked = False
+        TabOrder = 1
+        OnChange = FormaChange
+      end
+      object TimeFrom: TDateTimePicker
+        Left = 135
+        Top = 81
+        Width = 110
+        Height = 27
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Date = 0.375000000000000000
+        Time = 0.375000000000000000
+        Checked = False
+        Kind = dtkTime
+        TabOrder = 2
+        OnChange = FormaChange
+      end
+      object TimeTo: TDateTimePicker
+        Left = 135
+        Top = 116
+        Width = 108
+        Height = 27
+        Margins.Left = 4
+        Margins.Top = 4
+        Margins.Right = 4
+        Margins.Bottom = 4
+        Date = 0.750000000000000000
+        Time = 0.750000000000000000
+        Checked = False
+        Kind = dtkTime
+        TabOrder = 3
+      end
+    end
+  end
+  object ApplicationEvents1: TApplicationEvents
+    OnException = ApplicationEvents1Exception
+    Left = 152
+    Top = 8
+  end
+  object TimerPrinted: TTimer
+    Enabled = False
+    Interval = 4000
+    OnTimer = TimerPrintedTimer
+    Left = 96
+    Top = 8
+  end
+end
